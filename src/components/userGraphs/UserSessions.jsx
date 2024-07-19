@@ -45,11 +45,20 @@ const UserSessionsGraph = ({ datas }) => {
 		day: extendedDays[item.day] || 'Unknown', // Assurez-vous que chaque jour a un label
 	}));
 
+	const getMinMaxSessionLength = () => {
+		const sessionLengths = data.map(session => session.sessionLength);
+		const min = Math.min(...sessionLengths);
+		const max = Math.max(...sessionLengths);
+		return { min, max };
+	};
+
+	const { min, max } = getMinMaxSessionLength();
+
 	return (
 		<ResponsiveContainer width="106.5%" height="100%">
 			<LineChart
 				data={data}
-				margin={{ top: -100, left: -65, right: 9 }}
+				margin={{ top: 100, left: -65, right: 9, bottom: 0 }}
 				onMouseMove={state => {
 					if (state.isTooltipActive) {
 						setActiveIndex(state.activeTooltipIndex);
@@ -78,10 +87,10 @@ const UserSessionsGraph = ({ datas }) => {
 					tickLine={false}
 					axisLine={false}
 				/>
-				<YAxis tick={false} axisLine={false} domain={[0, 150]} />
+				<YAxis tick={false} axisLine={false} domain={[min - 15, max + 15]} />
 				<Tooltip content={<CustomTooltip />} cursor={<CustomCursor />} />
 				<Line
-					type="natural"
+					type="bump"
 					dataKey="sessionLength"
 					stroke="url(#lineGradient)"
 					strokeWidth={3}

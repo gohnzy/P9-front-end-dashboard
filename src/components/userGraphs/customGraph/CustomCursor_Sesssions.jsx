@@ -2,16 +2,15 @@ import { Rectangle } from 'recharts';
 
 const CustomCursor = props => {
 	const { points, width } = props;
-	const { x, y } = points[0];
-	console.log(props);
+	const { x } = points[0];
 	return (
 		<Rectangle
 			fill="rgba(0,0,0,0.1)"
 			stroke="red"
-			x={x + 5}
-			y={y}
+			x={x}
+			y={0}
 			width={width}
-			height={1000}
+			height={10000}
 		/>
 	);
 };
