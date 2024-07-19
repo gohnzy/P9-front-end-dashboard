@@ -1,21 +1,41 @@
 {
-  "name": "P9-front-end-dashboard",
-  "version": "1.0.0",
-  "description": "Backend for the 9th project of the new path Front-end Developper",
-  "main": "index/app.js",
-  "repository": "https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard.git",
-  "author": "tdimnet <thomas.dimnet@gmail.com>",
-  "license": "MIT",
-  "devDependencies": {
-    "nodemon": "^2.0.4"
-  },
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "idx": "^2.5.6"
-  },
-  "scripts": {
-    "dev": "node_modules/.bin/nodemon app/index.js",
-    "start": "node app/index.js"
-  }
+	"name": "P9-front-end-dashboard",
+	"version": "1.0.0",
+	"description": "Backend for the 9th project of the new path Front-end Developper",
+	"main": "index/app.js",
+	"repository": "https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard.git",
+	"author": "tdimnet <thomas.dimnet@gmail.com>",
+	"license": "MIT",
+	"devDependencies": {
+		"nodemon": "^2.0.4"
+	},
+	"dependencies": {
+		"cors": "^2.8.5",
+		"express": "^4.17.1",
+		"idx": "^2.5.6",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"react-router": "^6.24.1",
+		"react-router-dom": "^6.24.1",
+		"react-scripts": "^5.0.1",
+		"recharts": "^2.12.7",
+		"styled-components": "^6.1.11"
+	},
+	"scripts": {
+		"other": "node_modules/.bin/nodemon app/index.js",
+		"start": "node app/index.js",
+		"dev": "react-scripts start"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	}
 }
