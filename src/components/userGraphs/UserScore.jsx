@@ -4,10 +4,9 @@ import {
 	ResponsiveContainer,
 	PolarAngleAxis,
 } from 'recharts';
-import styled from 'styled-components';
 
 const ScoreGraph = ({ datas }) => {
-	const score = [{ todayScore: datas.data.todayScore * 100 }];
+	const score = [{ todayScore: datas.todayScore * 100 }];
 
 	const renderCustomLabel = ({ cx, cy, value }) => {
 		return (

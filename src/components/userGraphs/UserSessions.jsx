@@ -16,7 +16,7 @@ import CustomCursor from './customGraph/CustomCursor_Sesssions';
 
 const UserSessionsGraph = ({ datas }) => {
 	const [activeIndex, setActiveIndex] = useState(null);
-	const sessions = datas.data.sessions;
+	const sessions = datas.sessions;
 	const extendedDays = {
 		0: 'J-1',
 		1: 'L',
@@ -35,7 +35,7 @@ const UserSessionsGraph = ({ datas }) => {
 	// Ajouter deux jours supplémentaires au début et à la fin
 	const data = [
 		{ day: 0, sessionLength: firstDayValue },
-		...datas.data.sessions.map(session => ({
+		...datas.sessions.map(session => ({
 			...session,
 			day: session.day, // Décalage pour tenir compte du jour supplémentaire au début
 		})),

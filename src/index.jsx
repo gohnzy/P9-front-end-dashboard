@@ -6,7 +6,6 @@ import {
 	Route,
 	useParams,
 } from 'react-router-dom';
-import GetAllUsers from './utils/allUsers';
 
 import './styles/style.css';
 
@@ -24,31 +23,31 @@ const GetUser = () => {
 	return <UserHomepage id={id} />;
 };
 
-const GetDatas = () => {
-	const [datas, setDatas] = useState([]);
-	const [loading, setLoading] = useState(true);
-	const [error, setError] = useState(null);
+// const GetDatas = () => {
+// 	const [datas, setDatas] = useState([]);
+// 	const [loading, setLoading] = useState(true);
+// 	const [error, setError] = useState(null);
 
-	useEffect(() => {
-		const fetchDatas = async () => {
-			try {
-				const result = await GetAllUsers();
-				setDatas(result);
-			} catch (error) {
-				setError(error.message);
-			} finally {
-				setTimeout(() => {
-					setLoading(false);
-				}, 500);
-			}
-		};
+// 	useEffect(() => {
+// 		const fetchDatas = async () => {
+// 			try {
+// 				const result = await GetAllUsers();
+// 				setDatas(result);
+// 			} catch (error) {
+// 				setError(error.message);
+// 			} finally {
+// 				setTimeout(() => {
+// 					setLoading(false);
+// 				}, 500);
+// 			}
+// 		};
 
-		fetchDatas();
-	}, []);
-	if (loading) return <div>Loading...</div>;
-	if (error) return <div>Error: {error}</div>;
-	return <UserSelect datas={datas} />;
-};
+// 		fetchDatas();
+// 	}, []);
+// 	if (loading) return <div>Loading...</div>;
+// 	if (error) return <div>Error: {error}</div>;
+// 	return <UserSelect datas={datas} />;
+// };
 
 root.render(
 	<React.StrictMode>
@@ -56,7 +55,7 @@ root.render(
 			<Header />
 			<VerticalLayout />
 			<Routes>
-				<Route path="/" element={<GetDatas />}></Route>
+				{/* <Route path="/" element={<GetDatas />}></Route> */}
 				<Route path="/user/:id" element={<GetUser />}></Route>
 			</Routes>
 		</Router>

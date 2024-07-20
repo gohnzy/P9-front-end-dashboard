@@ -5,7 +5,7 @@ import carboHydrateIcon from '../../assets/CarboHydrate.svg';
 import lipidIcon from '../../assets/Lipids.svg';
 
 const UserKeyDatas = ({ datas }) => {
-	const UserDatas = datas.data.keyData;
+	const UserDatas = datas.keyData;
 	return (
 		<KeyDatas>
 			<Article id="calories">

@@ -1,4 +1,5 @@
 ///// Suppression temporaire des avertissements concernant defaultProps
+// Une mise à jour à venir rendra obsolète defaultProps
 const originalWarn = console.error;
 
 console.error = (message, ...args) => {
@@ -26,8 +27,7 @@ import UserSessions from '../dashboard/UserSessionsBloc';
 import UserPerformance from '../dashboard/UserPerformanceBloc';
 import UserScore from '../dashboard/UserScoreBloc';
 
-// fetch data function
-import ThisUser from '../../utils/userDatas';
+import getUserDataById from '../../utils/userData';
 
 const UserHomepage = ({ id }) => {
 	const [userDatas, setUserDatas] = useState(null);
@@ -37,7 +37,7 @@ const UserHomepage = ({ id }) => {
 	useEffect(() => {
 		const fetchUserData = async () => {
 			try {
-				const datas = await ThisUser(id);
+				const datas = getUserDataById(id);
 				if (datas.datas === 'error') {
 					setError(true);
 				}
@@ -64,15 +64,15 @@ const UserHomepage = ({ id }) => {
 
 	return (
 		<Main>
-			<UserHeader user={userDatas.user ?? 'Unknown'} />
+			<UserHeader user={userDatas.userData ?? 'Unknown'} />
 			<Container>
-				<UserActivities datas={userDatas.activities} />
-				<UserKeyDatas datas={userDatas.user ?? 'Undefined'} />
+				<UserActivities datas={userDatas.activityData} />
+				<UserKeyDatas datas={userDatas.userData ?? 'Undefined'} />
 
 				<BottomDatasContainer>
-					<UserSessions datas={userDatas.sessions}></UserSessions>
-					<UserPerformance datas={userDatas.performance}></UserPerformance>
-					<UserScore datas={userDatas.user} />
+					<UserSessions datas={userDatas.sessionData}></UserSessions>
+					<UserPerformance datas={userDatas.performanceData}></UserPerformance>
+					<UserScore datas={userDatas.userData} />
 				</BottomDatasContainer>
 			</Container>
 		</Main>

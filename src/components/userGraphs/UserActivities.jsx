@@ -43,6 +43,18 @@ const ActivitiesGraph = ({ datas }) => {
 		scaledKilogram: data.kilogram * 0.5,
 	}));
 
+	const getMinMaxValues = () => {
+		const calories = datas.map(d => d.calories);
+		const minCal = Math.min(...calories);
+		const maxCal = Math.max(...calories);
+		const kilograms = datas.map(d => d.kilogram);
+		const minKil = Math.min(...kilograms);
+		const maxKil = Math.max(...kilograms);
+		return { minCal, maxCal, minKil, maxKil };
+	};
+
+	const { minCal, maxCal, minKil, maxKil } = getMinMaxValues();
+
 	return (
 		<ResponsiveContainer width="100%" height={200}>
 			<StyledBarChart
@@ -54,7 +66,7 @@ const ActivitiesGraph = ({ datas }) => {
 				<YAxis
 					yAxisId="left"
 					orientation="left"
-					domain={[75, 85]}
+					domain={[minKil - 3, maxKil + 3]}
 					interval={1}
 					axisLine={false}
 					tickLine={false}
@@ -62,7 +74,7 @@ const ActivitiesGraph = ({ datas }) => {
 				<YAxis
 					yAxisId="right"
 					orientation="right"
-					domain={[150, 100 * 0.4]}
+					domain={[minCal - 20, maxCal + 20]}
 					interval={1}
 					axisLine={false}
 					tickLine={false}

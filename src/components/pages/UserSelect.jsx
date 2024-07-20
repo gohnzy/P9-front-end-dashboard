@@ -5,9 +5,9 @@ const UserSelect = ({ datas }) => {
 	return (
 		<Section>
 			<h1>Change user here (implemented for test use only)</h1>
-			{datas.data.map((user, key) => (
+			{datas.map((user, key) => (
 				<StyledLink key={key} to={`user/${user.id}`}>
-					<h2>{user.userInfos.firstName}</h2>
+					<h2>{user.userInfos.firstName ?? 'Unknown'}</h2>
 				</StyledLink>
 			))}
 		</Section>

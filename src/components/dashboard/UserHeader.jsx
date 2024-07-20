@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const userHeader = ({ user }) => {
-	let datas = user.data;
+	let datas = user;
 	return (
 		<Banner>
 			<H1>Bonjour</H1>

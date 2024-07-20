@@ -8,8 +8,8 @@ import {
 } from 'recharts';
 
 const PerformanceGraph = ({ datas }) => {
-	const data = datas.data;
-	const performance = data.data;
+	const data = datas;
+	const performance = datas.data;
 
 	const values = performance.map(perf => ({
 		...perf,

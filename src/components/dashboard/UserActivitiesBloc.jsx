@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import ActivitiesGraph from '../userGraphs/UserActivities';
 
 const UserActivities = ({ datas }) => {
-	const activity = datas.data;
+	const activity = datas;
 	const sessions = activity.sessions.map((session, index) => ({
 		index: index + 1,
 		kilogram: session.kilogram,
