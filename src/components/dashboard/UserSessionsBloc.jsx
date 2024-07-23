@@ -1,6 +1,15 @@
 import styled from 'styled-components';
 
+// Import user's sessions graph
 import UserSessionsGraph from '../userGraphs/UserSessions';
+
+/**
+ * Component to display user's daily activity.
+ *
+ * @param {Object} props - The component props.
+ * @param {Object} props.datas - The data object containing user data ; decomposed in graph component.
+ * @returns {JSX.Element} The JSX code to render the user's activity section.
+ */
 
 const UserSessions = ({ datas }) => {
 	return (

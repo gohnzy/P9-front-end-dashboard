@@ -1,3 +1,8 @@
+/////																		/////
+//				This component is not asked for the project					 //
+//		It allows dev user to swap between users - for developpement only	 //
+//		 Accessible from base URL '/', which is the default page opened		 //
+/////																		/////
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 

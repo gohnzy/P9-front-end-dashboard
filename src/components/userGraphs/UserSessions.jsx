@@ -14,9 +14,22 @@ import {
 import CustomTooltip from './customGraph/CustomTooltip_Sessions';
 import CustomCursor from './customGraph/CustomCursor_Sesssions';
 
+/**
+ *
+ * @param {Object} props - datas sent on component
+ * @param {Array} datas - user's datas
+ * @param {Array} datas.data.sessions - sessions data
+ * @param {Number} session.day - session's day index
+ * @param {Number} session.sessionLength - length of the session in minute
+ * @returns {JSX.Element}
+ */
+
+// User's sessions graph - linear chart
 const UserSessionsGraph = ({ datas }) => {
 	const [activeIndex, setActiveIndex] = useState(null);
 	const sessions = datas.data.sessions;
+
+	// Object for XAxis bar's legend
 	const extendedDays = {
 		0: 'J-1',
 		1: 'L',
@@ -32,19 +45,20 @@ const UserSessionsGraph = ({ datas }) => {
 	const firstDayValue = sessions[0].sessionLength;
 	const lastDayValue = sessions[sessions.length - 1].sessionLength;
 
-	// Ajouter deux jours supplémentaires au début et à la fin
+	// Add 1 day before and 1 day after the week to improve char
 	const data = [
 		{ day: 0, sessionLength: firstDayValue },
 		...datas.data.sessions.map(session => ({
 			...session,
-			day: session.day, // Décalage pour tenir compte du jour supplémentaire au début
+			day: session.day,
 		})),
-		{ day: 8, sessionLength: lastDayValue }, // Jour supplémentaire à la fin
+		{ day: 8, sessionLength: lastDayValue },
 	].map(item => ({
 		...item,
-		day: extendedDays[item.day] || 'Unknown', // Assurez-vous que chaque jour a un label
+		day: extendedDays[item.day] || 'Unknown', // Ensure each days has a label
 	}));
 
+	// Get session's length value to improve chart's lisibility
 	const getMinMaxSessionLength = () => {
 		const sessionLengths = data.map(session => session.sessionLength);
 		const min = Math.min(...sessionLengths);

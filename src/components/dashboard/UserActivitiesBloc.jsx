@@ -1,6 +1,20 @@
 import styled from 'styled-components';
+
+// Import graph
 import ActivitiesGraph from '../userGraphs/UserActivities';
 
+/**
+ * Component to display user's daily activity.
+ *
+ * @param {Object} props - The component props.
+ * @param {Object} props.datas - The data object containing user data.
+ * @param {Object[]} props.datas.data - The array of activities objects.
+ * @param {number} props.datas.data[].kilogram - The weight in kilograms.
+ * @param {number} props.datas.data[].calories - The calories burned.
+ * @returns {JSX.Element} The JSX code to render the user's activity section.
+ */
+
+// User's activity components, used on user's dashboard
 const UserActivities = ({ datas }) => {
 	const activity = datas.data;
 	const sessions = activity.sessions.map((session, index) => ({
@@ -26,6 +40,7 @@ const UserActivities = ({ datas }) => {
 	);
 };
 
+// Styles
 const Section = styled.section`
 	& * {
 		font-family: Roboto;

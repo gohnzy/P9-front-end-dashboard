@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+// Import header images
 import logo from '../../assets/Logo.svg';
 import name from '../../assets/Name.svg';
 
+// Header component used on all pages
 const Header = () => {
 	return (
 		<HeaderDiv>
@@ -20,6 +22,8 @@ const Header = () => {
 		</HeaderDiv>
 	);
 };
+
+// Styles
 
 const HeaderDiv = styled.header`
 	width: 100vw;

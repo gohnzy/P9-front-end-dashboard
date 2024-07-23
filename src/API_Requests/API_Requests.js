@@ -1,3 +1,12 @@
+// Function for API calls
+
+/**
+ *
+ * @param {number} id - id of the user
+ * @param {string} type - wich user's datas needed
+ * @returns {Promise<Object>} promise with datas
+ */
+
 const GET = async (id, type) => {
 	let API;
 	if (type === 'basicInfos') {

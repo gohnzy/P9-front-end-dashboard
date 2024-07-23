@@ -1,3 +1,5 @@
+// Changer data call to land here and make the datas to be normalized before getting send through API calls
+
 function normalizeUserData(user) {
 	return {
 		id: user.id,

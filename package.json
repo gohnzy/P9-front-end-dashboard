@@ -13,6 +13,8 @@
 		"cors": "^2.8.5",
 		"express": "^4.17.1",
 		"idx": "^2.5.6",
+		"js-doc": "^0.5.0",
+		"jsdoc": "^4.0.3",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
 		"react-router": "^6.24.1",
@@ -24,7 +26,8 @@
 	"scripts": {
 		"other": "node_modules/.bin/nodemon app/index.js",
 		"start": "node app/index.js",
-		"dev": "react-scripts start"
+		"dev": "react-scripts start",
+		"docs": "jsdoc -c jsdoc.json"
 	},
 	"browserslist": {
 		"production": [

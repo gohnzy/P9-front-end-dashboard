@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+// Import vertical layout icons
 import yoga from '../../assets/Yoga.svg';
 import swim from '../../assets/Swim.svg';
 import cycle from '../../assets/Cycle.svg';
 import weight from '../../assets/Weight.svg';
 
+// Vertical Layout components used on all pages
 const VerticalLayout = () => {
 	return (
 		<Layout>
@@ -25,6 +27,7 @@ const VerticalLayout = () => {
 	);
 };
 
+// Styles
 const Layout = styled.nav`
 	background-color: black;
 	width: 7.1%;

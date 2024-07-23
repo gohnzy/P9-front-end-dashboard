@@ -1,3 +1,10 @@
+/////																		/////
+//				This function is not required for the project				 //
+//		It allows dev user to swap between users - for developpement only	 //
+//		 Accessible from base URL '/', which is the default page opened		 //
+/////																		/////
+
+// Get all users for API's root URL in order to gather all users and map into them to display swap button on component 'UserSelect'
 const GetAllUsers = async () => {
 	let API = 'http://localhost:3001/';
 

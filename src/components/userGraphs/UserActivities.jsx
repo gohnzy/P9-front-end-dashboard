@@ -9,33 +9,21 @@ import {
 } from 'recharts';
 import styled from 'styled-components';
 
-const CustomTooltip = ({ active, payload, label }) => {
-	if (active && payload && payload.length) {
-		return (
-			<CustomizedTooltip>
-				<p className="kilogram">{`Kilogram: ${payload[0].value}`}</p>
-				<p className="calories">{`Calories: ${payload[1].value}`}</p>
-			</CustomizedTooltip>
-		);
-	}
+// Import custom tooltip
+import CustomTooltip from './customGraph/CustomTooltip_Activities';
 
-	return null;
-};
+/**
+ *
+ * @param {Array} props.datas - passed by parent to the graph component*
+ * @param {} datas.calories - calories burned in kcal
+ * @param {} datas.calories - calories burned in kcal
+ * @returns
+ */
 
-const CustomizedTooltip = styled.div`
-	width: 60px;
-	height: 95px;
-	font-family: roboto;
-	font-size: 12px;
-	border-radius: 1px;
-	padding: 5px;
-	box-sizing: border-box;
-	color: white;
-	background-color: #e60000;
-`;
-
+// Activities graph made with recharts,
+// displays the last week activity with weight state and calories burned, for each days
 const ActivitiesGraph = ({ datas }) => {
-	// Transformer les données pour les calories en utilisant le facteur de réduction
+	// Transform datas number with scaling factors to adapt bar size and improve the graph's lisibility
 	const transformedData = datas.map((data, index) => ({
 		...data,
 		index: index + 1,
@@ -95,6 +83,8 @@ const ActivitiesGraph = ({ datas }) => {
 		</ResponsiveContainer>
 	);
 };
+
+// Styles
 
 const StyledBarChart = styled(BarChart)`
 	margin-top: 10px;

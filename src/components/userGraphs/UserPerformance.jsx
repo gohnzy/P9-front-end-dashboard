@@ -7,10 +7,22 @@ import {
 	PolarRadiusAxis,
 } from 'recharts';
 
+/**
+ *
+ * @param {Object} props - datas sent on component
+ * @param {Array} datas - array with performances datas
+ * @param {Array} datas.data.data - performances values
+ * @param {Number} data.kind - kind of performance
+ * @param {Number} data.value - the kind of performance's value
+ * @returns {JSX.Element}
+ */
+
+// User's performance graph (radar chart)
 const PerformanceGraph = ({ datas }) => {
 	const data = datas.data;
 	const performance = data.data;
 
+	// Linking kind's index to its value
 	const values = performance.map(perf => ({
 		...perf,
 		value: perf.value,

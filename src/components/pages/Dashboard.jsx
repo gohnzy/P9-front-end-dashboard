@@ -1,4 +1,5 @@
 ///// Suppression temporaire des avertissements concernant defaultProps
+// Une mise à jour majeure arrive et va changer l'utilisation de defaultProps
 const originalWarn = console.error;
 
 console.error = (message, ...args) => {
@@ -29,11 +30,21 @@ import UserScore from '../dashboard/UserScoreBloc';
 // fetch data function
 import ThisUser from '../../utils/userDatas';
 
+/**
+ *
+ * @param {number} id - user's id
+ * @returns {JSX.Element} User's dashboard component
+ */
+
 const UserHomepage = ({ id }) => {
+	// Store user's datas
 	const [userDatas, setUserDatas] = useState(null);
+	// Loading state to wait for datas
 	const [loading, setLoading] = useState(true);
+	// State for error handling
 	const [error, setError] = useState(null);
 
+	// Fetch datas here every time component is refreshed
 	useEffect(() => {
 		const fetchUserData = async () => {
 			try {
@@ -42,6 +53,8 @@ const UserHomepage = ({ id }) => {
 					setError(true);
 				}
 				setUserDatas(datas);
+
+				// Timeout to ensure datas are fetched
 				setTimeout(() => {
 					setLoading(false);
 				}, 500);
@@ -54,24 +67,37 @@ const UserHomepage = ({ id }) => {
 		fetchUserData();
 	}, [id]);
 
+	// Loader is returned by default
 	if (loading) {
 		return <Loader />;
 	}
 
+	// Return error
 	if (error) {
 		return <Error message={'Problème lors de la collecte des données...'} />;
 	}
 
+	// Dashboard rendering here
+
 	return (
 		<Main>
+			{/* Welcome message component */}
 			<UserHeader user={userDatas.user ?? 'Unknown'} />
+
+			{/* Dashboard elements */}
 			<Container>
+				{/* Activities bloc */}
 				<UserActivities datas={userDatas.activities} />
+				{/* Statistics bloc */}
 				<UserKeyDatas datas={userDatas.user ?? 'Undefined'} />
 
+				{/* Element's bloc for seperated for display */}
 				<BottomDatasContainer>
-					<UserSessions datas={userDatas.sessions}></UserSessions>
-					<UserPerformance datas={userDatas.performance}></UserPerformance>
+					{/* Sessions bloc */}
+					<UserSessions datas={userDatas.sessions} />
+					{/* Performance bloc */}
+					<UserPerformance datas={userDatas.performance} />
+					{/* Score bloc */}
 					<UserScore datas={userDatas.user} />
 				</BottomDatasContainer>
 			</Container>
@@ -79,6 +105,7 @@ const UserHomepage = ({ id }) => {
 	);
 };
 
+// Styles
 const Loader = styled.div`
 	margin: 25vh auto;
 	width: 50px;

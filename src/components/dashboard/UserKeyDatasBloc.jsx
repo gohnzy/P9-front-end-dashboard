@@ -1,9 +1,25 @@
 import styled from 'styled-components';
+
+// Import stat's icons
 import caloriesIcon from '../../assets/Calories.svg';
 import proteinIcon from '../../assets/Protein.svg';
 import carboHydrateIcon from '../../assets/CarboHydrate.svg';
 import lipidIcon from '../../assets/Lipids.svg';
 
+/**
+ * Component to display user's daily activity.
+ *
+ * @param {Object} props - The component props.
+ * @param {Object} props.datas - The data object containing user data.
+ * @param {Object[]} props.datas.data.keyData - The array of key datas.
+ * @param {number} keyData.calorieCount - The calories burned.
+ * @param {number} keyData.proteinCount - Protein consumed.
+ * @param {number} keyData.carbohydrateCount - Glucose burned.
+ * @param {number} keyData.lipidCount - Lipid burned
+ * @returns {JSX.Element} The JSX code to render the user's activity section.
+ */
+
+// User's stats component
 const UserKeyDatas = ({ datas }) => {
 	const UserDatas = datas.data.keyData;
 	return (

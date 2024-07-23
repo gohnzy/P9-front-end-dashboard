@@ -1,5 +1,14 @@
 import styled from 'styled-components';
 
+/**
+ *
+ * @param {Object} props - Component's props
+ * @param {Object[]} props.data - User's datas
+ * @param {string} data.firstName - User's first name
+ * @returns
+ */
+
+// Small component to display user's name and welcome message
 const userHeader = ({ user }) => {
 	let datas = user.data;
 	return (
@@ -12,6 +21,7 @@ const userHeader = ({ user }) => {
 	);
 };
 
+// Styles
 const Banner = styled.section`
 	& * {
 		font-family: Roboto;

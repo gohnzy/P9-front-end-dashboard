@@ -1,7 +1,16 @@
 import styled from 'styled-components';
 
+// Import user's performances graph
 import PerformanceGraph from '../userGraphs/UserPerformance';
 
+/**
+ *
+ * @param {Object} props - The component props.
+ * @param {Object} props.datas - The data object containing user data ; decomposed in graph component.
+ * @returns
+ */
+
+// User's performances component
 const UserPerformance = ({ datas }) => {
 	return (
 		<Section>
@@ -10,6 +19,7 @@ const UserPerformance = ({ datas }) => {
 	);
 };
 
+// Styles
 const Section = styled.section`
 	& * {
 		font-family: roboto;

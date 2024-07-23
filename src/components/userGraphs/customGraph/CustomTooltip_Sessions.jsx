@@ -1,3 +1,12 @@
+/**
+ * @param {Object} props - given by recharts
+ * @param {Array} props.payload - points datas on the line given by recharts
+ * @param {Object} props.coordinate - mouse coordinate given by recharts
+ * @param {Object} props.active - tooltip state given by recharts
+ * @returns {JSX.Element}
+ */
+
+// Custom tooltip for sessions's graph
 const CustomTooltip = ({ active, payload, coordinate }) => {
 	if (active && payload && payload.length) {
 		const { x } = coordinate;

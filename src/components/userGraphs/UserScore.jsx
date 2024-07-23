@@ -4,25 +4,22 @@ import {
 	ResponsiveContainer,
 	PolarAngleAxis,
 } from 'recharts';
-import styled from 'styled-components';
 
+import renderCustomLabel from './customGraph/CustomLabel_Score';
+
+/**
+ *
+ * @param {Object} props - datas sent on component
+ * @param {Array} datas - user's datas
+ * @param {Number} datas.data.todayScore - user's score
+ * @returns {JSX.Element}
+ */
+
+// User's daily score graph - radial bar chart
 const ScoreGraph = ({ datas }) => {
+	// Transforming decimal nomber in percentage
 	const score = [{ todayScore: datas.data.todayScore * 100 }];
 
-	const renderCustomLabel = ({ cx, cy, value }) => {
-		return (
-			<text
-				x={cx}
-				y={cy}
-				fill="black"
-				textAnchor="middle"
-				fontSize="26px"
-				fontWeight="700"
-			>
-				{`${value}%`}
-			</text>
-		);
-	};
 	return (
 		<ResponsiveContainer width="100%" height="100%">
 			<RadialBarChart

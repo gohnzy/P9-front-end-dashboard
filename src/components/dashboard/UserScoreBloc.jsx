@@ -1,7 +1,17 @@
 import styled from 'styled-components';
 
+// Import user's score graph
 import ScoreGraph from '../userGraphs/UserScore';
 
+/**
+ * Component to display user's daily activity.
+ *
+ * @param {Object} props - The component props.
+ * @param {Object} props.datas - The data object containing user data ; decomposed in graph components.
+ * @returns {JSX.Element} The JSX code to render the user's activity section.
+ */
+
+// User's score component
 const UserScore = ({ datas }) => {
 	return (
 		<Section>
@@ -11,6 +21,7 @@ const UserScore = ({ datas }) => {
 	);
 };
 
+// Styles
 const Section = styled.section`
 	& * {
 		font-family: roboto;
