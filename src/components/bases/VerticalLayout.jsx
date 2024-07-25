@@ -11,18 +11,21 @@ import weight from '../../assets/Weight.svg';
 const VerticalLayout = () => {
 	return (
 		<Layout>
-			<ActivitiesIcon id="yoga">
-				<img src={yoga} alt="" />
-			</ActivitiesIcon>
-			<ActivitiesIcon id="swim">
-				<img src={swim} alt="" />
-			</ActivitiesIcon>
-			<ActivitiesIcon id="cycle">
-				<img src={cycle} alt="" />
-			</ActivitiesIcon>
-			<ActivitiesIcon id="weightlift">
-				<img src={weight} alt="" />
-			</ActivitiesIcon>
+			<div>
+				<ActivitiesIcon id="yoga">
+					<img src={yoga} alt="" />
+				</ActivitiesIcon>
+				<ActivitiesIcon id="swim">
+					<img src={swim} alt="" />
+				</ActivitiesIcon>
+				<ActivitiesIcon id="cycle">
+					<img src={cycle} alt="" />
+				</ActivitiesIcon>
+				<ActivitiesIcon id="weightlift">
+					<img src={weight} alt="" />
+				</ActivitiesIcon>
+			</div>
+			<p>Copyright, SportSee 2020</p>
 		</Layout>
 	);
 };
@@ -37,9 +40,26 @@ const Layout = styled.nav`
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-around;
 	align-items: center;
-	gap: 30px;
+
+	& div {
+		margin-top: 10vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 30px;
+	}
+
+	& p {
+		width: 138px;
+		font-family: roboto;
+		font-weight: 500;
+		font-size: 12px;
+		color: white;
+		transform: rotate(-90deg);
+	}
 `;
 
 const ActivitiesIcon = styled(Link)`
